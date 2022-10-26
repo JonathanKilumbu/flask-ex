@@ -2,5 +2,16 @@
 <h1>Register</h1>
 <h4>Enter Student Information below</h4>
 <!--Form to request user's name-->
+<form action="/studentdetails" method="POST" target="">
+    <label for="sname">Enter name:</label>
+    <input type="text" name= "sname" id = "sname">
+    <label for = "organization">Enter organization: </label>
+    <select name="organization" id="organization">
+        <option value="Student top rank"> a club</option>
+        <option value="Fight club"> b club</option>
+        
+    </select>
+    <input type="submit" value="Register">
+</form>
 
 {% endblock %}

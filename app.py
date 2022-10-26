@@ -4,8 +4,10 @@ from flask import Flask, render_template, request
 from datetime import datetime
 
 app = Flask(__name__)
-global studentOrganisationDetails
+global studentOrganizationDetails
 # Assign default 5 values to studentOrganisationDetails for Application  3.
+studentOrganizationDetails ={"Jon": "Students top rank", "Kim": "Fight Club"}
+
 
 
 @app.get('/')
@@ -21,7 +23,7 @@ def displayNumberPage():
     return render_template('form.html')
 
 
-@app.route('/calculate', methods=['POST'])
+@app.route('/result', methods=['POST'])
 def checkNumber():
     # Get Number from form and display message according to number
     # Display "Number {Number} is even" if given number is even on result.html page
@@ -31,29 +33,32 @@ def checkNumber():
     global number
     number = request.form['number']
      # Write your to code here to check whether number is even or odd and render result.html page
+    if number == "":
+        return render_template('result.html', number = "No number provided")
     if number.isdigit():
-        int(number)% 2
-        if number > 0:
-            return render_template('result.html', number = number + " is odd")
-        else:
+        if int(number)%2 == 0:
             return render_template('result.html', number = number + " is even")
+        else:
+            return render_template('result.html', number = number + " is odd")
     else:
-        return render_template('result.html',) 
+        return render_template('result.html', number = "Provided input is not an integer!") 
         
     
 
-@app.get('/addStudentOrganisation')
+@app.get('/addStudentOrganization')
 def displayStudentForm():
     # Complete this function to display studentFrom.html page
-    return render_template('studentFrom.html')
+    return render_template('studentForm.html')
 
 
-@app.route('/addStudentOrganisation', methods=['POST'])
+@app.route('/studentdetails', methods=['POST'])
 def displayRegistrationPage():
     # Get student name and organisation from form.
-    studentName = request.form['name']
+    studentName = request.form['sname']
+    organization = request.form['organization']
 
     # Append this value to studentOrganisationDetails
+    studentOrganizationDetails[studentName]= organization
 
     # Display studentDetails.html with all students and organisations
-    return render_template('studentDetails.html')
+    return render_template('StudentDetails.html', studentOrganizationDetails=studentOrganizationDetails)
