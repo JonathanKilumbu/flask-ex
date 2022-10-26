@@ -6,7 +6,7 @@ from datetime import datetime
 app = Flask(__name__)
 global studentOrganizationDetails
 # Assign default 5 values to studentOrganisationDetails for Application  3.
-studentOrganizationDetails ={"Jon": "Students top rank", "Kim": "Fight Club"}
+studentOrganizationDetails ={"Jon": "Students Top Rank", "Kim": "Fight Club Pro", "Jorden": "Flight Club","Trent": "Moustache Mountain", "Sam": "Cultural Club"}
 
 
 

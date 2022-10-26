@@ -1,3 +1,5 @@
+{% extends 'layout.html' %}
+
 {% block content %}
 <h1>Register</h1>
 <h4>Enter Student Information below</h4>
@@ -7,9 +9,12 @@
     <input type="text" name= "sname" id = "sname">
     <label for = "organization">Enter organization: </label>
     <select name="organization" id="organization">
-        <option value="Student top rank"> a club</option>
-        <option value="Fight club"> b club</option>
-        
+        <option value="Student Top Rank"> Student top rank</option>
+        <option value="Fight Club Pro"> Fight Club Pro</option>
+        <option value="Flight Club"> Flight Club</option>
+        <option value="Moustache Mountain"> Moustache Mountain</option>
+        <option value="Cultural Club"> Cultural Club</option>
+
     </select>
     <input type="submit" value="Register">
 </form>
